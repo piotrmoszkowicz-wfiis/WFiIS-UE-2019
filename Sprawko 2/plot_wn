@@ -1,0 +1,11 @@
+a = 0.98123171
+f(x) = a * x
+
+set key left top
+set datafile separator ","
+set term png
+set output "plot_wtornik_napieciowy.png"
+set xlabel "Uin"
+set yrange [-15:15]
+plot 'data_wtornik_napieciowy.csv' u 1:2 with linespoints ls 1 t 'Uout', \
+      f(x) title 'Dopasowana prosta' with lines linestyle 1 lw 2 linecolor rgb '#ff0000'

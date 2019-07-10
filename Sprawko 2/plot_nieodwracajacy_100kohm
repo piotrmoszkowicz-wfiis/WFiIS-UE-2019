@@ -1,0 +1,8 @@
+set key left top
+set datafile separator ","
+set term png
+set output "plot_nieodwracajacy_100kohm.png"
+set xlabel "F [kHz]"
+set ylabel "k [dB]"
+plot 'data_nieodwracajacy_100kohm.csv' u 1:3 with linespoints ls 1 t 'k', \
+     'data_nieodwracajacy_100kohm.csv' u 1:2 title 'Dopasowana prosta' with lines linestyle 1 lw 2 linecolor rgb '#ff0000'

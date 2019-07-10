@@ -1,0 +1,13 @@
+f(x) = a*x + b
+
+set datafile separator ","
+fit f(x) 'data_wtornik_napieciowy_sin.csv' u 1:2 via a, b
+
+set key left top
+set term png
+set output "plot_wtornik_napieciowy_sin.png"
+set xlabel "F [kHz]"
+set ylabel "k [dB]"
+set logscale x 10
+plot 'data_wtornik_napieciowy_sin.csv' u 1:2 with linespoints ls 1 t 'k', \
+      f(x) title 'Dopasowana krzywa' with lines linestyle 1 lw 2 linecolor rgb '#ff0000'
